@@ -1,0 +1,29 @@
+def train_and_evaluate(model,X_train, X_test, y_train, y_test):
+      model.fit(X_train, y_train)
+      y_pred=model.predict(X_test)
+      mse=mean_squared_error(y_test,y_pred)
+      return mse
+
+def train_and_evaluate(model,X_train, X_test, y_train, y_test):
+      model.fit(X_train, y_train)
+      y_pred=model.predict(X_test)
+      mse=mean_squared_error(y_test,y_pred)
+      return mse
+      
+    model = [RandomForestRegressor(), KNeighborsRegressor(), DecisionTreeRegressor(), SVR(), LinearRegression()]
+    names=['Random Forest','KNN','Decision Tree','SVM','Linear Regression']
+    
+    for m,n in zip(model,names):
+      mse=train_and_evaluate(model, X_train,X_test,y_train,y_test)
+      print(f'{n} Mean Squared Error : {mse}')
+model_names = [model.__class__.__name__ for model in models]
+    plt.bar(model_names, mse)
+    plt.xlabel('Model')
+    plt.ylabel('Mean Squared Error')
+    plt.title('Model Comparison')
+    plt.show()
+
+if crop_input not in crop_list:
+      return render_template('try_again.html')
+
+ crop_list = df["Crop"].unique().tolist()
